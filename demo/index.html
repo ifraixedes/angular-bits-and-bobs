@@ -7,23 +7,26 @@
 	<script src="../libs/moment.js"></script>
 
 	<script src="../src/modules.js"></script>
+	<script src="../src/services/tools.js"></script>
 	<script src="../src/directives/rt-fromnow.js"></script>
 	<script src="../src/directives/route.js"></script>
+	<script src="../src/directives/repeat.js"></script>
 
 	<script src="app.js"></script>
 	<script src="ctrls/controllers.js"></script>
+	<script src="ctrls/collections.js"></script>
 
 </head>
 <body>
 <header>
-	<!--<div ifc-route="{{widgetRoute}}" ng-init="widgetRoute = '\'/widget/one\''"></div>-->
-	<div ifc-route="{{widgetRoute}}" ng-init="widgetRoute = '/widget/one'"></div>
+	<div data-ifc-route="{{widgetRoute}}" data-ng-init="widgetRoute = '/widget/one'"></div>
 </header>
 <div>
 	<div style="float: left; width: 10%;">
 		<span>Directives</span>
 		<ul>
 			<li><a href="#/moment">moment</a></li>
+			<li><a href="#/collections/iterate">Collections iteration</a></li>
 		</ul>
 
 	</div>

@@ -1,0 +1,70 @@
+<h3>When may ifc-repeat directive be useful?</h3>
+<p>When you have a collection (array) of values/object which your would like to remove
+   elements that you can identify by a key, but you want to avoid to walk the collection each
+   time to look for the element to remove (checking the keys), but at the same time you need
+   the collection to keep the order so using a simple hash (keys ==> value object) doesn't fit
+   to it</p>
+<hr>
+<button data-ng-click="initUsers()">Initialise users list</button>
+<label>To remove a element of the next tables just type the number of
+		      the id column an press <input type="text" size="1" data-ng-model="keyOfElemToRemove">
+			<button data-ng-click="removeElement()">remove</button>
+		</label>
+<div data-ng-switch="elementRemoved">
+	<span data-ng-switch-when="removed" style="color: blue;">
+		Element with id: {{keyOfElemToRemove}}, has been removed
+	</span>
+	<span data-ng-switch-when="failed" style="color: red;">
+		Non-exist any element with id {{keyOfElemToRemove}}
+	</span>
+	<span data-ng-switch-default></span>
+</div>
+<hr>
+<h4>Next table was generated using ifc-repeat</h4>
+<p>elements are set to null rather than delete, so if your use cases require delete a random
+   element you can do that using a hash to know the position in the array, but avoiding to
+   rebuild the hash each time that you would like to remove one, because setting it a null you
+   are keeping the same position of the elements as it doesn't happen when elements are removed</p>
+<table>
+	<thead>
+	<tr>
+		<td>key</td>
+		<td>Name</td>
+		<td>Points</td>
+	</tr>
+	</thead>
+	<tbody>
+	<tr data-ifc-repeat="user in usersListIfcRepeat">
+		<td>{{user.id}}</td>
+		<td>{{user.name}}</td>
+		<td>{{user.points}}</td>
+	</tr>
+	</tbody>
+</table>
+<br>
+<h4>And the following one using ng-repeat</h4>
+<p>using ng-repeat you cannot apply the same technique as ifc-repeat for two main reasons:</p>
+<ol>
+	<li>ng-repeat iterate over null values as usual, so those elements fall out in an
+	    iteration like another else element so you should manage them usign another directive
+	    like ng-show
+	</li>
+	<li>ng-repeat doesn't allow to add two times the same object (reference equality),
+	    so setting null more than one element you would get an error
+	</li>
+</ol>
+<table>
+	<thead>
+	<tr>
+		<td>Name</td>
+		<td>Points</td>
+	</tr>
+	</thead>
+	<tbody>
+	<tr data-ng-repeat="user in usersListNgRepeat">
+		<td>{{user.id}}</td>
+		<td>{{user.name}}</td>
+		<td>{{user.points}}</td>
+	</tr>
+	</tbody>
+</table>
