@@ -1,28 +1,33 @@
-<form name="websiteForm">
+<form name="websiteForm" class="pure-form pure-form-aligned">
 	<fieldset>
 		<legend>Input text for websites urls</legend>
-		<p>Type a url with http/s protocol or without it and see the model values
-		   next to it and also observe the difference between the 'pergonal
-		   website' (non-required) and the 'work website' (required)
-		</p>
-		<label for="personal"> Personal web site:
+		<label>Type a url with http/s protocol or without it and see the model values
+		       next to it and also observe the difference between the 'pergonal
+		       website' (non-required) and the 'work website' (required)
+		</label>
+
+		<div class="pure-control-group">
+			<label for="personal"> Personal web site</label>
 			<input type="text" id="personal" name="personalWebsite" placeholder="www.myblog.com"
-			       data-ng-model="personalWebsiteUrl" data-ifc-website-input></label>
-		&nbsp;
-		<span>{{personalWebsiteUrl}}</span>
-		<span style="color: red" data-ng-show="websiteForm.$error.personalWebsiteUrl">Incorrect
+			       data-ng-model="personalWebsiteUrl" data-ifc-website-input>
+			&nbsp;
+			<span class="pure-form-message-inline">{{personalWebsiteUrl}}</span>
+		<span class="pure-form-message-inline" style="color: red"
+		      data-ng-show="websiteForm.$error.personalWebsiteUrl">Incorrect
 		                                                                            url</span>
-		<br>
-		<label for="company"> Company web site:
+		</div>
+		<div class="pure-control-group">
+			<label for="company"> Company web site</label>
 			<input type="text" id="company" name="companyWebsite" placeholder="www.google.com"
-			       data-ng-model="companyWebsiteUrl" data-ifc-website-input required> *</label>
-		&nbsp;
-		<span>{{companyWebsiteUrl}}</span>
-		<span style="color: orange"
+			       data-ng-model="companyWebsiteUrl" data-ifc-website-input required>
+			&nbsp;
+			<span class="pure-form-message-inline">{{companyWebsiteUrl}}</span>
+		<span class="pure-form-message-inline" style="color: orange"
 		      data-ng-show="websiteForm.companyWebsite.$dirty && websiteForm.companyWebsite.$error.required">
 			This filed is required</span>
-		<span style="color: red"
+		<span class="pure-form-message-inline" style="color: red"
 		      data-ng-show="websiteForm.companyWebsite.$dirty && websiteForm.$error.companyWebsiteUrl">
 			Incorrect url</span>
+		</div>
 	</fieldset>
 </form>
