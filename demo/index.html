@@ -3,6 +3,10 @@
 <head>
 	<title>IFC Angular</title>
 
+	<link rel="stylesheet" href="styles/purecss/base-min.css">
+	<link rel="stylesheet" href="styles/purecss/grids-min.css">
+	<link rel="stylesheet" href="styles/purecss/buttons-min.css">
+
 	<script src="../libs/angular-1.1.4/angular.js"></script>
 	<script src="../libs/moment.js"></script>
 
@@ -10,7 +14,8 @@
 	<script src="../src/services/tools.js"></script>
 	<script src="../src/directives/rt-fromnow.js"></script>
 	<script src="../src/directives/route.js"></script>
-	<script src="../src/directives/repeat.js"></script>
+	<script src="../src/directives/collections/repeat.js"></script>
+	<script src="../src/directives/websiteinput.js"></script>
 
 	<script src="app.js"></script>
 	<script src="ctrls/controllers.js"></script>
@@ -18,19 +23,18 @@
 
 </head>
 <body>
-<header>
-	<div data-ifc-route="{{widgetRoute}}" data-ng-init="widgetRoute = '/widget/one'"></div>
-</header>
-<div>
-	<div style="float: left; width: 10%;">
+<div class="pure-g-r">
+	<!--<div style="float: left; width: 10%;">-->
+	<div class="pure-u-1-5">
 		<span>Directives</span>
 		<ul>
 			<li><a href="#/moment">moment</a></li>
+			<li><a href="#/websiteinput">website input</a></li>
 			<li><a href="#/collections/iterate">Collections iteration</a></li>
 		</ul>
-
+		<div data-ifc-route="{{widgetRoute}}" data-ng-init="widgetRoute = '/widget/one'"></div>
 	</div>
-	<div style="width: 90%;" data-ng-view>
+	<div class="pure-u-4-5" data-ng-view>
 	</div>
 </div>
 </body>

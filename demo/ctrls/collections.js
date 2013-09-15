@@ -1,7 +1,7 @@
 (function (ifcDemo) {
 
 	ifcDemo.controller('IterateCollectionCtrl',
-		['$scope', '$timeout', function ($scope, $timeout) {
+		['$rootScope', '$scope', '$timeout', function ($rootScope, $scope, $timeout) {
 
 			function initUsers() {
 				usersIndex = {
@@ -108,6 +108,8 @@
 			var toPromise;
 
 			initUsers();
+
+			$rootScope.widgetRoute = '/widget/one';
 
 			$scope.initUsers = initUsers;
 

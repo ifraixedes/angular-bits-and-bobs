@@ -5,7 +5,6 @@
 	  function ($rootScope, $scope) {
 
 		  $scope.dateAtLoad = new Date();
-		  //$rootScope.widgetRoute = '\'/widget/two\'';
 		  $rootScope.widgetRoute = '/widget/two';
 
   }]);

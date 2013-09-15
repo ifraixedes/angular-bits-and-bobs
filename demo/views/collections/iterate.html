@@ -2,20 +2,30 @@
 <p>When you have a collection (array) of values/object which your would like to remove
    elements that you can identify by a key, but you want to avoid to walk the collection each
    time to look for the element to remove (checking the keys), but at the same time you need
-   the collection to keep the order so using a simple hash (keys ==> value object) doesn't fit
-   to it</p>
+   the collection to keep the order so using an only hash (keys ==> value object) doesn't fit
+   to it.
+</p>
+<p>
+e.g. You have a real time application which show a message stream and the owner of the message can
+delete his own messages, so when he delete one the application sends a notification (i.e. a web
+sockets messages with the message's id/key) to all other connected users to delete the specified
+message; then if the application use a hash to associate the id/key of the message with its
+position in the list (array), it can tackle to delete the specified message without walking the
+array to find it.
+</p>
 <hr>
-<button data-ng-click="initUsers()">Initialise users list</button>
-<label>To remove a element of the next tables just type the number of
-		      the id column an press <input type="text" size="1" data-ng-model="keyOfElemToRemove">
-			<button data-ng-click="removeElement()">remove</button>
-		</label>
+<button class="pure-button" data-ng-click="initUsers()">Initialise users list</button>
+<label for="numKeyToDel">To remove a element of the next tables just type the number of
+       the id column an press <input type="text" size="1" id="numKeyToDel"
+                                     data-ng-model="keyOfElemToRemove">
+	<button class="pure-button pure-button-primary" data-ng-click="removeElement()">remove</button>
+</label>
 <div data-ng-switch="elementRemoved">
 	<span data-ng-switch-when="removed" style="color: blue;">
-		Element with id: {{keyOfElemToRemove}}, has been removed
+		Element with key: {{keyOfElemToRemove}}, has been removed
 	</span>
 	<span data-ng-switch-when="failed" style="color: red;">
-		Non-exist any element with id {{keyOfElemToRemove}}
+		Non-exist any element with key {{keyOfElemToRemove}}
 	</span>
 	<span data-ng-switch-default></span>
 </div>
@@ -23,8 +33,9 @@
 <h4>Next table was generated using ifc-repeat</h4>
 <p>elements are set to null rather than delete, so if your use cases require delete a random
    element you can do that using a hash to know the position in the array, but avoiding to
-   rebuild the hash each time that you would like to remove one, because setting it a null you
-   are keeping the same position of the elements as it doesn't happen when elements are removed</p>
+   rebuild the hash each time that you would like to remove one, because setting it a null the
+   application keeps the same position of the elements because the value of the position is
+   replace by null, so ifc-repeat will ignore it.</p>
 <table>
 	<thead>
 	<tr>
