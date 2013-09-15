@@ -24,6 +24,12 @@
 					controller: 'WidgetTwoCtrl'
 				});
 
+				$routes.when('/moment', {
+					templateUrl: 'views/moment.html',
+					controller: 'MomentCtrl'
+				});
+
+
 
 				$routes.when('/websiteinput', {
 					templateUrl: 'views/websiteInput.html',
