@@ -13,7 +13,6 @@
 
 	var ifcDirModule = angular.module('ifcDirectives');
 
-
 	/**
 	 * `ifc-route` observes the value assigned to itself html attribute to update the content
 	 * of the html element using the controller and view specified by the provided route, so
