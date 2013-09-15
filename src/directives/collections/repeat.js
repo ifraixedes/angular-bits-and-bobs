@@ -89,8 +89,8 @@
 						rhs = match[2];
 						match = lhs.match(/^(?:([\$\w]+)|\(([\$\w]+)\s*,\s*([\$\w]+)\))$/);
 						if (!match) {
-							throw Error("'item' in 'item in collection' should be identifier or (key, value) but got '" +
-								lhs + "'.");
+							throw Error("'item' in 'item in collection' should be identifier or (key, value) " +
+								"but got '" + lhs + "'.");
 						}
 						valueIdent = match[3] || match[1];
 						keyIdent = match[2];
