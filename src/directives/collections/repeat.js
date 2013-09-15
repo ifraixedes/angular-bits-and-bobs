@@ -1,9 +1,12 @@
 /**
- * @license Ivan Fraixedes Cugat
+ * @author Ivan Fraixedes Cugat
  * (c) 2013
  * License: MIT
+ * It codes is strongly ported from  AngularJS library licensed under MIT by Google Inc.
  *
- * This has been extracted and modified from AngularJS library licensed under MIT by Google Inc.
+ * @module directives
+ * @namespace ifcDirCollections
+ * @class Repeat
  */
 
 (function (angular) {
@@ -12,63 +15,13 @@
 	var ifcDirModule = angular.module('ifcDirCollections');
 
 	/**
-	 * @ngdoc directive
-	 * @name ng.directive:ngRepeat
+	 * `ifcRepeat` is almost the same that ngRepeat but ignore the `null` and `undefined` elements
+	 * into the collection so they are ignore as if they aren't into it
 	 *
-	 * @description
-	 * The `ngRepeat` directive instantiates a template once per item from a collection. Each template
-	 * instance gets its own scope, where the given loop variable is set to the current collection item,
-	 * and `$index` is set to the item index or key.
+	 * @method ifcRepeat
+	 * @param {String} ifcRepeat the same string time that accept ngRepeat directive
 	 *
-	 * Special properties are exposed on the local scope of each template instance, including:
-	 *
-	 *   * `$index` – `{number}` – iterator offset of the repeated element (0..length-1)
-	 *   * `$first` – `{boolean}` – true if the repeated element is first in the iterator.
-	 *   * `$middle` – `{boolean}` – true if the repeated element is between the first and last in the iterator.
-	 *   * `$last` – `{boolean}` – true if the repeated element is last in the iterator.
-	 *
-	 *
-	 * @element ANY
-	 * @scope
-	 * @priority 1000
-	 * @param {repeat_expression} ngRepeat The expression indicating how to enumerate a collection. Two
-	 *   formats are currently supported:
-	 *
-	 *   * `variable in expression` – where variable is the user defined loop variable and `expression`
-	 *     is a scope expression giving the collection to enumerate.
-	 *
-	 *     For example: `track in cd.tracks`.
-	 *
-	 *   * `(key, value) in expression` – where `key` and `value` can be any user defined identifiers,
-	 *     and `expression` is the scope expression giving the collection to enumerate.
-	 *
-	 *     For example: `(name, age) in {'adam':10, 'amalie':12}`.
-	 *
-	 * @example
-	 * This example initializes the scope to a list of names and
-	 * then uses `ngRepeat` to display every person:
-	 <doc:example>
-	 <doc:source>
-	 <div ng-init="friends = [{name:'John', age:25}, {name:'Mary', age:28}]">
-	 I have {{friends.length}} friends. They are:
-	 <ul>
-	 <li ng-repeat="friend in friends">
-	 [{{$index + 1}}] {{friend.name}} who is {{friend.age}} years old.
-	 </li>
-	 </ul>
-	 </div>
-	 </doc:source>
-	 <doc:scenario>
-	 it('should check ng-repeat', function() {
-           var r = using('.doc-example-live').repeater('ul li');
-           expect(r.count()).toBe(2);
-           expect(r.row(0)).toEqual(["1","John","25"]);
-           expect(r.row(1)).toEqual(["2","Mary","28"]);
-         });
-	 </doc:scenario>
-	 </doc:example>
 	 */
-
 	ifcDirModule.directive('ifcRepeat',
 		['HashQueueMap', function (HashQueueMap) {
 
@@ -132,15 +85,12 @@
 								array = collection || [];
 							}
 
-							//arrayLength = array.length;
-
 							// we are not using forEach for perf reasons (trying to avoid #call)
 							for (index = 0, length = array.length; index < length; index++) {
 								key = (collection === array) ? index : array[index];
 								value = collection[key];
 
 								if ((value === undefined) || (value === null)) {
-									//arrayLength--;
 									numNoValues++;
 									continue;
 								}

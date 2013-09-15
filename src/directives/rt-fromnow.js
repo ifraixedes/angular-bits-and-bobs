@@ -1,7 +1,11 @@
 /**
- * @license Ivan Fraixedes Cugat
+ * @author Ivan Fraixedes Cugat
  * (c) 2013
  * License: MIT
+ *
+ * @module directives
+ * @namespace ifcDirectives
+ * @class RtFromNow
  */
 
 (function (angular, moment) {
@@ -11,10 +15,12 @@
 
 
 	/**
-	 * @descipton
 	 * `ifc-rt-from-now` update the html tag element value, with the value returned by moment.fromNow
 	 * function whenever the date date assigned to the scope vatiabled which is bounded to this
 	 * directive by `ngModel` requires, due the value should be different from the previous one
+	 *
+	 * @method ifcRtFromNow
+	 * @requires ngModel, Moment
 	 *
 	 */
 	ifcDirModule.directive('ifcRtFromNow', ['$timeout',

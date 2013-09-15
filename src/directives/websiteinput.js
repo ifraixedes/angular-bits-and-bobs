@@ -1,7 +1,11 @@
 /**
- * @license Ivan Fraixedes Cugat
+ * @author Ivan Fraixedes Cugat
  * (c) 2013
  * License: MIT
+ *
+ * @module directives
+ * @namespace ifcDirectives
+ * @class WebsiteInput
  */
 
 (function (angular) {
@@ -10,7 +14,6 @@
 	var ifcDirModule = angular.module('ifcDirectives');
 
 	/**
-	 * @description
 	 * `ifc-website-input` parse the text introduced in an input box and test if it may be a url
 	 * web site. The introduced url may specify one of the web protocols (http or https) or not.
 	 * The directive always returns to the model (variable specified by ng-model directive) the url
@@ -20,6 +23,10 @@
 	 * The directive report an error to the ngModelCtrl labeled `websiteUrl` when the html element
 	 * doesn't have `id` attribute, otherwise prepend to it `WebsiteUrl`, which is a boolean with
 	 * true value when the input text is a wrong url.
+	 *
+	 * @method ifcWebsiteInput
+	 * @requires ngModel
+	 *
 	 */
 	ifcDirModule.directive('ifcWebsiteInput', [
 		function () {

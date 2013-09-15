@@ -1,7 +1,11 @@
 /**
- * @license Ivan Fraixedes Cugat
+ * @author Ivan Fraixedes Cugat
  * (c) 2013
  * License: MIT
+ *
+ * @module directives
+ * @namespace ifcDirectives
+ * @class Route
  */
 
 (function (angular) {
@@ -11,8 +15,6 @@
 
 
 	/**
-	 *
-	 * @descipton
 	 * `ifc-route` observes the value assigned to itself html attribute to update the content
 	 * of the html element using the controller and view specified by the provided route, so
 	 * the value should be an existing route registered with `Angular $routeProvder`.
@@ -25,11 +27,14 @@
 	 * for each route change (e.g. some routes use the same widget) or a part of a view which you
 	 * need to change without changing the route; although this behaviour can be implemented using
 	 * a controller that listen events and for each event the controller update variables and the
-	 * view usign `ngTemplate`, it's cleaner to add a controller which listens the events to update
+	 * view using `ngTemplate`, it's cleaner to add a controller which listens the events to update
 	 * the value of this directive or just using a `$rootScope` variable, so the different behaviours
-	 * are implemented with a controller and view, keeping them seperated rather than all of them
+	 * are implemented with a controller and view, keeping them separated rather than all of them
 	 * together in a controller or service.
 	 *
+	 * @method ifcRoute
+	 * @param {String} ifcRoute A binding string ({{scopeVarName}}) for a variable referenced in the
+	 *    $scope
 	 *
 	 */
 
