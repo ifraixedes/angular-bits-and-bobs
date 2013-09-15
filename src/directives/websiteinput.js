@@ -18,7 +18,7 @@
 	 * `http` protocol when the input url lacks of protocol.
 	 *
 	 * The directive report an error to the ngModelCtrl labeled `websiteUrl` when the html element
-	 * doesn't have `name` attribute, otherwise prepend to it `WebsiteUrl`, which is a boolean with
+	 * doesn't have `id` attribute, otherwise prepend to it `WebsiteUrl`, which is a boolean with
 	 * true value when the input text is a wrong url.
 	 */
 	ifcDirModule.directive('ifcWebsiteInput', [
