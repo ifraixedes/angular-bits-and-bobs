@@ -1,0 +1,14 @@
+<form name="websiteForm">
+	<fieldset>
+		<legend>Input text for websites urls</legend>
+		<label for="websiteInput">Type a url with http/s protocol or without it and see the model values
+		                          next to it: &nbsp;
+			<input type="text" id="websiteInput" name="websiteInput" placeholder="www.google.com"
+			       data-ng-model="websiteUrl" data-ifc-website-input></label>
+		&nbsp;
+		<span>{{websiteUrl}}</span>
+		<div data-ng-show="websiteForm.$error.websiteUrl">
+			<span style="color: red">Incorrect url</span>
+		</div>
+	</fieldset>
+</form>
