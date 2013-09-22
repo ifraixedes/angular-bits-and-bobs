@@ -1,0 +1,51 @@
+<br>
+<div style="margin-left: 50px">
+	<span>Scroll on one of the three columns</span>
+
+	<div class="pure-g">
+		<!--<form class="pure-form pure-form-aligned ">-->
+		<!--<div class="pure-control-group">-->
+		<!--<label for="maxElemInput" style="width: 300px">Maximum number of elements: </label>-->
+		<!--<input class="pure-input-1-16" type="number" id="maxElemInput" data-ng-model="maxElements">-->
+		<!--</div>-->
+		<!--<br>-->
+		<!--<div class="pure-control-group">-->
+		<!--<label for="nElemToGetInput" style="width: 300px">Number of elements to get per-->
+		<!--scroll: </label>-->
+		<!--<input class="pure-input-1-16" type="number" id="nElemToGetInput"-->
+		<!--data-ng-model="numElemsToGet">-->
+		<!--</div>-->
+		<!--</form>-->
+		<!--<br>-->
+
+		<!--<div  style="overflow-y: hidden">-->
+		<div class="pure-u-1-3" style="overflow-y: hidden; overflow-x: hidden">
+			<span>No visible scroll and 150px of height</span>
+
+			<div data-ifc-when-scrolled="retrieveNext()" style="width: 105%; height: 150px">
+				<ul>
+					<li data-ng-repeat="element in elements" style="height: 50px;">{{element}}</li>
+				</ul>
+			</div>
+		</div>
+		<div class="pure-u-1-3" style="overflow-y: hidden; overflow-x: hidden">
+			<span>No visible scroll and no height</span>
+
+			<div data-ifc-when-scrolled="retrieveNext()" style="width: 105%;">
+				<ul>
+					<li data-ng-repeat="element in elements" style="height: 50px;">{{element}}</li>
+				</ul>
+			</div>
+		</div>
+		<div class="pure-u-1-3">
+			<span>Visible scroll and no height</span>
+			<div data-ifc-when-scrolled="retrieveNext()">
+				<ul>
+					<li data-ng-repeat="element in elements" style="height: 50px;">{{element}}</li>
+				</ul>
+			</div>
+		</div>
+
+		<!--</div>-->
+	</div>
+</div>

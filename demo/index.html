@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="styles/purecss/grids-min.css">
 	<link rel="stylesheet" href="styles/purecss/buttons-min.css">
 	<link rel="stylesheet" href="styles/purecss/forms-min.css">
+	<link rel="stylesheet" href="styles/stuffular.css">
 
 	<script src="../libs/angular-1.1.4/angular.js"></script>
 	<script src="../libs/moment.js"></script>
@@ -15,8 +16,9 @@
 	<script src="../src/services/tools.js"></script>
 	<script src="../src/directives/rt-fromnow.js"></script>
 	<script src="../src/directives/route.js"></script>
-	<script src="../src/directives/collections/repeat.js"></script>
 	<script src="../src/directives/websiteinput.js"></script>
+	<script src="../src/directives/infinitescroll.js"></script>
+	<script src="../src/directives/collections/repeat.js"></script>
 
 	<script src="app.js"></script>
 	<script src="ctrls/controllers.js"></script>
@@ -24,16 +26,24 @@
 
 </head>
 <body>
-<div class="pure-g-r">
-	<!--<div style="float: left; width: 10%;">-->
+<div class="pure-g-r" style="margin: 5px">
 	<div class="pure-u-1-5">
-		<span>Directives</span>
+		<h4>Directives menu</h4>
 		<ul>
 			<li><a href="#/moment">moment</a></li>
 			<li><a href="#/websiteinput">website input</a></li>
+			<li><a href="#/infiniteScroll">infinte scroll</a></li>
 			<li><a href="#/collections/iterate">Collections iteration</a></li>
 		</ul>
-		<div data-ifc-route="{{widgetRoute}}" data-ng-init="widgetRoute = '/widget/one'"></div>
+
+		<div
+				style="border-color: #2d6987; border-style: solid; border-width: 1px; margin: 10px;
+				padding: 5px">
+			<span style="color: #444444; margin: 10px 5px 3px 0px;">Content provided by ifc-route</span>
+			<hr>
+			<div data-ifc-route="{{widgetRoute}}" data-ng-init="widgetRoute = '/widget/one'"></div>
+		</div>
+
 	</div>
 	<div class="pure-u-4-5" data-ng-view>
 	</div>

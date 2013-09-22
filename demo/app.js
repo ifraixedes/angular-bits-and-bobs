@@ -30,16 +30,22 @@
 				});
 
 
-
 				$routes.when('/websiteinput', {
 					templateUrl: 'views/websiteInput.html',
 					controller: function () {}
+				});
+
+				$routes.when('/infiniteScroll', {
+					templateUrl: 'views/infiniteScroll.html',
+					controller: 'InfiniteScrollCtrl'
 				});
 
 				$routes.when('/collections/iterate', {
 					templateUrl: 'views/collections/iterate.html',
 					controller: 'IterateCollectionCtrl'
 				});
+
+
 
 				$routes.otherwise({
 					redirect: '/'
