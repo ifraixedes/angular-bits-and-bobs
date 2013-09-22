@@ -20,6 +20,7 @@
 	 *
 	 * @method ifcRepeat
 	 * @param {String} ifcRepeat the same string time that accept ngRepeat directive
+	 * @requires HashQueueMap (service)
 	 *
 	 */
 	ifcDirModule.directive('ifcRepeat',
