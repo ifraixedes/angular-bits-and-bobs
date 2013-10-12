@@ -1,0 +1,10 @@
+{
+  "name": "AngularJS bits & bobs",
+  "description": "A bunch of AngularJS components (directives, filters, services) which I am implementing when I needed or just for fun",
+  "version": "0.0.1",
+  "url": "https://github.com/ifraixedes/angular-bits-and-bobs",
+  "options": {
+    "tabospace": 2,
+    "outdir": "build/apidocs"
+  }
+}
