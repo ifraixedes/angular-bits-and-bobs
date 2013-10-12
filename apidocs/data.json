@@ -1,0 +1,425 @@
+{
+    "project": {
+        "name": "AngularJS bits & bobs",
+        "description": "A bunch of AngularJS components (directives, filters, services) which I am implementing when I needed or just for fun",
+        "version": "0.0.1",
+        "url": "https://github.com/ifraixedes/angular-bits-and-bobs"
+    },
+    "files": {
+        "src/directives/collections/repeat.js": {
+            "name": "src/directives/collections/repeat.js",
+            "modules": {
+                "directives": 1
+            },
+            "classes": {
+                "ifcDirCollections.Repeat": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "ifcDirCollections": 1
+            }
+        },
+        "src/directives/infinitescroll.js": {
+            "name": "src/directives/infinitescroll.js",
+            "modules": {},
+            "classes": {
+                "ifcDirectives.ifcWhenScrolled": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "ifcDirectives": 1
+            }
+        },
+        "src/directives/route.js": {
+            "name": "src/directives/route.js",
+            "modules": {},
+            "classes": {
+                "ifcDirectives.Route": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "ifcDirectives": 1
+            }
+        },
+        "src/directives/rt-fromnow.js": {
+            "name": "src/directives/rt-fromnow.js",
+            "modules": {},
+            "classes": {
+                "ifcDirectives.RtFromNow": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "ifcDirectives": 1
+            }
+        },
+        "src/directives/websiteinput.js": {
+            "name": "src/directives/websiteinput.js",
+            "modules": {},
+            "classes": {
+                "ifcDirectives.WebsiteInput": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "ifcDirectives": 1
+            }
+        },
+        "src/services/tools.js": {
+            "name": "src/services/tools.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "directives": {
+            "name": "directives",
+            "submodules": {},
+            "classes": {
+                "ifcDirCollections.Repeat": 1,
+                "ifcDirectives.ifcWhenScrolled": 1,
+                "ifcDirectives.Route": 1,
+                "ifcDirectives.RtFromNow": 1,
+                "ifcDirectives.WebsiteInput": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "ifcDirCollections": 1,
+                "ifcDirectives": 1
+            },
+            "tag": "module",
+            "file": "src/directives/websiteinput.js",
+            "line": 1,
+            "author": "Ivan Fraixedes Cugat\n(c) 2013\nLicense: MIT\nIt codes is strongly ported from  AngularJS library licensed under MIT by Google Inc."
+        }
+    },
+    "classes": {
+        "ifcDirCollections.Repeat": {
+            "name": "ifcDirCollections.Repeat",
+            "shortname": "ifcDirCollections.Repeat",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "directives",
+            "namespace": "ifcDirCollections",
+            "file": "src/directives/collections/repeat.js",
+            "line": 1,
+            "author": "Ivan Fraixedes Cugat\n(c) 2013\nLicense: MIT\nIt codes is strongly ported from  AngularJS library licensed under MIT by Google Inc."
+        },
+        "ifcDirectives.ifcWhenScrolled": {
+            "name": "ifcDirectives.ifcWhenScrolled",
+            "shortname": "ifcDirectives.ifcWhenScrolled",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "directives",
+            "namespace": "ifcDirectives",
+            "file": "src/directives/infinitescroll.js",
+            "line": 1,
+            "author": "Ivan Fraixedes Cugat\n(c) 2013\nLicense: MIT\n\nThe implementation of this directive has been copied from http://jsfiddle.net/vojtajina/U7Bz9/\nso all acknowledgements should be sent to Vojta Jina (https://github.com/vojtajina)"
+        },
+        "ifcDirectives.Route": {
+            "name": "ifcDirectives.Route",
+            "shortname": "ifcDirectives.Route",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "directives",
+            "namespace": "ifcDirectives",
+            "file": "src/directives/route.js",
+            "line": 1,
+            "author": "Ivan Fraixedes Cugat\n(c) 2013\nLicense: MIT"
+        },
+        "ifcDirectives.RtFromNow": {
+            "name": "ifcDirectives.RtFromNow",
+            "shortname": "ifcDirectives.RtFromNow",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "directives",
+            "namespace": "ifcDirectives",
+            "file": "src/directives/rt-fromnow.js",
+            "line": 1,
+            "author": "Ivan Fraixedes Cugat\n(c) 2013\nLicense: MIT"
+        },
+        "ifcDirectives.WebsiteInput": {
+            "name": "ifcDirectives.WebsiteInput",
+            "shortname": "ifcDirectives.WebsiteInput",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "directives",
+            "namespace": "ifcDirectives",
+            "file": "src/directives/websiteinput.js",
+            "line": 1,
+            "author": "Ivan Fraixedes Cugat\n(c) 2013\nLicense: MIT"
+        }
+    },
+    "classitems": [
+        {
+            "file": "src/directives/collections/repeat.js",
+            "line": 17,
+            "description": "`ifcRepeat` is almost the same that ngRepeat but ignore the `null` and `undefined` elements\ninto the collection so they are ignore as if they aren't into it",
+            "itemtype": "method",
+            "name": "ifcRepeat",
+            "params": [
+                {
+                    "name": "ifcRepeat",
+                    "description": "the same string time that accept ngRepeat directive",
+                    "type": "String"
+                }
+            ],
+            "requires": [
+                "HashQueueMap (service)"
+            ],
+            "class": "ifcDirCollections.Repeat",
+            "module": "directives",
+            "namespace": "ifcDirCollections"
+        },
+        {
+            "file": "src/directives/route.js",
+            "line": 16,
+            "description": "`ifc-route` observes the value assigned to itself html attribute to update the content\nof the html element using the controller and view specified by the provided route, so\nthe value should be an existing route registered with `Angular $routeProvder`.\n\nFor better understanding, you can think that its behaviour is the same that `ngView`, bearing\nin mind that it is not updated when the route change, only when its value change.\n\nThis directive is useful when you need to execute different behaviour (controller + view) in\nsome part of your layout (i.e outside `ngView` you have a widget) but it doesn't have to change\nfor each route change (e.g. some routes use the same widget) or a part of a view which you\nneed to change without changing the route; although this behaviour can be implemented using\na controller that listen events and for each event the controller update variables and the\nview using `ngTemplate`, it's cleaner to add a controller which listens the events to update\nthe value of this directive or just using a `$rootScope` variable, so the different behaviours\nare implemented with a controller and view, keeping them separated rather than all of them\ntogether in a controller or service.",
+            "itemtype": "method",
+            "name": "ifcRoute",
+            "params": [
+                {
+                    "name": "ifcRoute",
+                    "description": "A binding string ({{scopeVarName}}) for a variable referenced in the\n   $scope",
+                    "type": "String"
+                }
+            ],
+            "class": "ifcDirectives.Route",
+            "module": "directives",
+            "namespace": "ifcDirectives"
+        },
+        {
+            "file": "src/directives/route.js",
+            "line": 140,
+            "class": "ifcDirectives.Route",
+            "module": "directives",
+            "namespace": "ifcDirectives"
+        },
+        {
+            "file": "src/directives/route.js",
+            "line": 156,
+            "class": "ifcDirectives.Route",
+            "module": "directives",
+            "namespace": "ifcDirectives"
+        },
+        {
+            "file": "src/directives/rt-fromnow.js",
+            "line": 17,
+            "description": "`ifc-rt-from-now` update the html tag element value, with the value returned by moment.fromNow\nfunction whenever the date date assigned to the scope vatiabled which is bounded to this\ndirective by `ngModel` requires, due the value should be different from the previous one",
+            "itemtype": "method",
+            "name": "ifcRtFromNow",
+            "requires": [
+                "ngModel",
+                "Moment"
+            ],
+            "class": "ifcDirectives.RtFromNow",
+            "module": "directives",
+            "namespace": "ifcDirectives"
+        },
+        {
+            "file": "src/directives/websiteinput.js",
+            "line": 16,
+            "description": "`ifc-website-input` parse the text introduced in an input box and test if it may be a url\nweb site. The introduced url may specify one of the web protocols (http or https) or not.\nThe directive always returns to the model (variable specified by ng-model directive) the url\nwith the protocol part, when the introduced value is a right web site url, so it adds the\n`http` protocol when the input url lacks of protocol.\n\nThe directive report an error to the ngModelCtrl labeled `websiteUrl` when the html element\ndoesn't have `id` attribute, otherwise prepend to it `WebsiteUrl`, which is a boolean with\ntrue value when the input text is a wrong url.",
+            "itemtype": "method",
+            "name": "ifcWebsiteInput",
+            "requires": [
+                "ngModel"
+            ],
+            "class": "ifcDirectives.WebsiteInput",
+            "module": "directives",
+            "namespace": "ifcDirectives"
+        },
+        {
+            "file": "src/services/tools.js",
+            "line": 1,
+            "license": "Ivan Fraixedes Cugat\n(c) 2013\nLicense: MIT",
+            "class": "",
+            "module": "directives",
+            "namespace": "ifcDirectives"
+        },
+        {
+            "file": "src/services/tools.js",
+            "line": 13,
+            "description": "A consistent way of creating unique IDs in angular. The ID is a sequence of alpha numeric\ncharacters such as '012ABC'. The reason why we are not using simply a number counter is that\nthe number string gets longer over time, and it can also overflow, where as the the nextId\nwill grow much slower, it is a string, and it will never overflow.",
+            "return": {
+                "description": "an unique alpha-numeric string"
+            },
+            "class": "",
+            "module": "directives",
+            "namespace": "ifcDirectives"
+        },
+        {
+            "file": "src/services/tools.js",
+            "line": 47,
+            "description": "Computes a hash of an 'obj'.\nHash of a:\n string is string\n number is number as string\n object is either result of calling $$hashKey function on the object or uniquely generated id,\n        that is also assigned to the $$hashKey property of the object.",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": ""
+                }
+            ],
+            "return": {
+                "description": "hash string such that the same input will have the same hash string.\n        The resulting string key is in 'type:hashKey' format.",
+                "type": "String"
+            },
+            "class": "",
+            "module": "directives",
+            "namespace": "ifcDirectives"
+        },
+        {
+            "file": "src/services/tools.js",
+            "line": 79,
+            "description": "A map where multiple values can be added to the same key such that they form a queue.",
+            "return": {
+                "description": "",
+                "type": "HashQueueMap"
+            },
+            "class": "",
+            "module": "directives",
+            "namespace": "ifcDirectives"
+        },
+        {
+            "file": "src/services/tools.js",
+            "line": 89,
+            "description": "Same as array push, but using an array as the value for the hash",
+            "class": "",
+            "module": "directives",
+            "namespace": "ifcDirectives"
+        },
+        {
+            "file": "src/services/tools.js",
+            "line": 101,
+            "description": "Same as array shift, but using an array as the value for the hash",
+            "class": "",
+            "module": "directives",
+            "namespace": "ifcDirectives"
+        },
+        {
+            "file": "src/services/tools.js",
+            "line": 116,
+            "description": "return the first item without deleting it",
+            "class": "",
+            "module": "directives",
+            "namespace": "ifcDirectives"
+        },
+        {
+            "file": "src/services/tools.js",
+            "line": 154,
+            "description": "It doesn't check the parameters types to enhance the performance, so it expects that the\nparameters be two objects",
+            "params": [
+                {
+                    "name": "dest",
+                    "description": ""
+                },
+                {
+                    "name": "update",
+                    "description": ""
+                }
+            ],
+            "class": "",
+            "module": "directives",
+            "namespace": "ifcDirectives"
+        },
+        {
+            "file": "src/services/tools.js",
+            "line": 183,
+            "description": "Return a new array with the ObjectIds sorted alphabetically\nNOTE: Method doesn't check the type of the array and expects at least the arrays contains one\nelement",
+            "params": [
+                {
+                    "name": "objectIds",
+                    "description": "",
+                    "type": "Array"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Array"
+            },
+            "throw": "An exception if the array has two identical ObjectIds",
+            "class": "",
+            "module": "directives",
+            "namespace": "ifcDirectives"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "unknown tag: license",
+            "line": " src/services/tools.js:1"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " src/services/tools.js:13"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " src/services/tools.js:47"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " src/services/tools.js:79"
+        },
+        {
+            "message": "unknown tag: throw",
+            "line": " src/services/tools.js:183"
+        },
+        {
+            "message": "Missing item type",
+            "line": " src/directives/route.js:140"
+        },
+        {
+            "message": "Missing item type",
+            "line": " src/directives/route.js:156"
+        },
+        {
+            "message": "Missing item type",
+            "line": " src/services/tools.js:1"
+        },
+        {
+            "message": "Missing item type\nA consistent way of creating unique IDs in angular. The ID is a sequence of alpha numeric\ncharacters such as '012ABC'. The reason why we are not using simply a number counter is that\nthe number string gets longer over time, and it can also overflow, where as the the nextId\nwill grow much slower, it is a string, and it will never overflow.",
+            "line": " src/services/tools.js:13"
+        },
+        {
+            "message": "Missing item type\nComputes a hash of an 'obj'.\nHash of a:\n string is string\n number is number as string\n object is either result of calling $$hashKey function on the object or uniquely generated id,\n        that is also assigned to the $$hashKey property of the object.",
+            "line": " src/services/tools.js:47"
+        },
+        {
+            "message": "Missing item type\nA map where multiple values can be added to the same key such that they form a queue.",
+            "line": " src/services/tools.js:79"
+        },
+        {
+            "message": "Missing item type\nSame as array push, but using an array as the value for the hash",
+            "line": " src/services/tools.js:89"
+        },
+        {
+            "message": "Missing item type\nSame as array shift, but using an array as the value for the hash",
+            "line": " src/services/tools.js:101"
+        },
+        {
+            "message": "Missing item type\nreturn the first item without deleting it",
+            "line": " src/services/tools.js:116"
+        },
+        {
+            "message": "Missing item type\nIt doesn't check the parameters types to enhance the performance, so it expects that the\nparameters be two objects",
+            "line": " src/services/tools.js:154"
+        },
+        {
+            "message": "Missing item type\nReturn a new array with the ObjectIds sorted alphabetically\nNOTE: Method doesn't check the type of the array and expects at least the arrays contains one\nelement",
+            "line": " src/services/tools.js:183"
+        }
+    ]
+}

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>ifcDirectives.Route - AngularJS bits &amp; bobs</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.8.0pr2/build/cssgrids/cssgrids-min.css">
+  <link rel="stylesheet" href="../styles/purecss/menus-min.css">
+  <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <script src="http://yui.yahooapis.com/combo?3.8.0pr2/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+  <div class="pure-menu pure-menu-open pure-menu-horizontal main-menu">
+    <a href="#" class="pure-menu-heading main-menu-heading"><img src="../img/logo.png"></a>
+    <ul>
+      <li><a href="../index.html">Demo</a></li>
+      <li><a href="https://github.com/ifraixedes/angular-bits-and-bobs">Repository</a></li>
+    </ul>
+  </div>
+  <br>
+    <div class="yui3-g">
+
+        <div id="sidebar" class="yui3-u">
+            <div id="modules" class="sidebox">
+    <div class="hd">
+        <h2 class="no-toc">Modules</h2>
+    </div>
+    <div class="bd">
+        <ul>
+            
+                <li><a href="../modules/directives.html">directives</a>
+                
+                </li>
+            
+        </ul>
+    </div>
+</div>
+
+<div id="classes" class="sidebox">
+    <div class="hd">
+        <h2 class="no-toc">Classes</h2>
+    </div>
+    <div class="bd">
+        <ul>
+            
+                <li><a href="../classes/ifcDirCollections.Repeat.html">ifcDirCollections.Repeat</a></li>
+            
+                <li><a href="../classes/ifcDirectives.ifcWhenScrolled.html">ifcDirectives.ifcWhenScrolled</a></li>
+            
+                <li><a href="../classes/ifcDirectives.Route.html">ifcDirectives.Route</a></li>
+            
+                <li><a href="../classes/ifcDirectives.RtFromNow.html">ifcDirectives.RtFromNow</a></li>
+            
+                <li><a href="../classes/ifcDirectives.WebsiteInput.html">ifcDirectives.WebsiteInput</a></li>
+            
+        </ul>
+    </div>
+</div>
+
+
+<div id="methods-on-page" class="sidebox on-page">
+    <div class="hd">
+        <h2 class="no-toc">Methods On Page</h2>
+    </div>
+    <div class="bd">
+        <ul>
+            
+                <li><a href="#methods_ifcRoute">ifcRoute</a></li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<div id="fileTree" class="sidebox">
+    <div class="hd">
+        <h2 class="no-toc">Files</h2>
+    </div>
+    <div class="bd">
+        <ul><li>src/<ul><li>directives/<ul><li>collections/<ul><li><a href="../files/src_directives_collections_repeat.js.html">repeat.js</a></li></ul></li><li><a href="../files/src_directives_infinitescroll.js.html">infinitescroll.js</a></li><li><a href="../files/src_directives_route.js.html">route.js</a></li><li><a href="../files/src_directives_rt-fromnow.js.html">rt-fromnow.js</a></li><li><a href="../files/src_directives_websiteinput.js.html">websiteinput.js</a></li></ul></li><li>services/<ul><li><a href="../files/src_services_tools.js.html">tools.js</a></li></ul></li></ul></li></ul>
+    </div>
+</div>
+
+
+
+        </div>
+
+        <div id="main" class="yui3-u">
+            <div class="content"><h4>Class ifcDirectives.Route</h4>
+
+
+
+<span class="foundat">Class defined in: <a href="../"><code>src&#x2F;directives&#x2F;route.js:1</code></a></span>
+<div class="intro"></div>
+
+
+
+<div id="classdocs">
+    <ul>
+        
+        <li><a href="#methods">Methods</a></li>
+        
+        
+        
+        
+    </ul>
+    <div>
+        
+            <div id="methods">
+            
+                <a name="methods_ifcRoute"></a>
+<div class="method item">
+     <strong class="name"><code>ifcRoute</code></strong>( <code>ifcRoute </code> ) 
+    <br>
+    <span class="foundat">
+    
+        
+    
+        <a href="../"><code>src&#x2F;directives&#x2F;route.js:16</code></a>
+    </span><br>
+    <p><code>ifc-route</code> observes the value assigned to itself html attribute to update the content
+of the html element using the controller and view specified by the provided route, so
+the value should be an existing route registered with <code>Angular $routeProvder</code>.</p>
+<p>For better understanding, you can think that its behaviour is the same that <code>ngView</code>, bearing
+in mind that it is not updated when the route change, only when its value change.</p>
+<p>This directive is useful when you need to execute different behaviour (controller + view) in
+some part of your layout (i.e outside <code>ngView</code> you have a widget) but it doesn&#39;t have to change
+for each route change (e.g. some routes use the same widget) or a part of a view which you
+need to change without changing the route; although this behaviour can be implemented using
+a controller that listen events and for each event the controller update variables and the
+view using <code>ngTemplate</code>, it&#39;s cleaner to add a controller which listens the events to update
+the value of this directive or just using a <code>$rootScope</code> variable, so the different behaviours
+are implemented with a controller and view, keeping them separated rather than all of them
+together in a controller or service.</p>
+
+    
+    <strong>Parameters:</strong>
+    <ul class="params">
+    
+        <li>
+        
+            <code>ifcRoute</code> <strong>&lt;String&gt;</strong>
+        
+        
+        <p>A binding string ({{scopeVarName}}) for a variable referenced in the
+   $scope</p>
+
+            
+        </li>
+    
+    </ul>
+    
+    
+    
+</div>
+
+            
+            </div>
+        
+        
+        
+        
+    </div>
+</div>
+</div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/js/tabs.js"></script>
+</body>
+</html>
