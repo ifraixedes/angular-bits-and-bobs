@@ -41,8 +41,7 @@
 						}
 
 						elem.html(moment(ngModelCtrl.$modelValue).fromNow());
-					}
-
+					};
 
 					function refreshTimeout(lastPromise) {
 

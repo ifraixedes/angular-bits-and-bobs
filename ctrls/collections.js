@@ -1,147 +1,145 @@
 (function (ifcDemo) {
+  ifcDemo.controller('IterateCollectionCtrl',
+                     ['$rootScope', '$scope', '$timeout', function ($rootScope, $scope, $timeout) {
 
-	ifcDemo.controller('IterateCollectionCtrl',
-		['$rootScope', '$scope', '$timeout', function ($rootScope, $scope, $timeout) {
+                       function initUsers() {
+                         usersIndex = {
+                           a: 5,
+                           b: 3,
+                           c: 2,
+                           d: 1,
+                           e: 4,
+                           f: 0
+                         };
 
-			function initUsers() {
-				usersIndex = {
-					a: 5,
-					b: 3,
-					c: 2,
-					d: 1,
-					e: 4,
-					f: 0
-				};
+                         $scope.usersListIfcRepeat = [
+                           {
+                           id: 'f',
+                           name: 'Rocky Balboa',
+                           points: 120
+                         },
+                         {
+                           id: 'd',
+                           name: 'Ivan Drago',
+                           points: 105
+                         },
+                         {
+                           id: 'c',
+                           name: 'Kicking your ass',
+                           points: 20
+                         },
+                         {
+                           id: 'b',
+                           name: 'Mike Tyson',
+                           points: 80
+                         },
+                         {
+                           id: 'e',
+                           name: 'Sparring me',
+                           points: 63
+                         },
+                         {
+                           id: 'a',
+                           name: 'Get rid of me',
+                           points: 95
+                         }
+                         ];
 
-				$scope.usersListIfcRepeat = [
-					{
-						id: 'f',
-						name: 'Rocky Balboa',
-						points: 120
-					},
-					{
-						id: 'd',
-						name: 'Ivan Drago',
-						points: 105
-					},
-					{
-						id: 'c',
-						name: 'Kicking your ass',
-						points: 20
-					},
-					{
-						id: 'b',
-						name: 'Mike Tyson',
-						points: 80
-					},
-					{
-						id: 'e',
-						name: 'Sparring me',
-						points: 63
-					},
-					{
-						id: 'a',
-						name: 'Get rid of me',
-						points: 95
-					}
-				];
+                         $scope.usersListNgRepeat = [
+                           {
+                           id: 'f',
+                           name: 'Rocky Balboa',
+                           points: 120
+                         },
+                         {
+                           id: 'd',
+                           name: 'Ivan Drago',
+                           points: 105
+                         },
+                         {
+                           id: 'c',
+                           name: 'Kicking your ass',
+                           points: 20
+                         },
+                         {
+                           id: 'b',
+                           name: 'Mike Tyson',
+                           points: 80
+                         },
+                         {
+                           id: 'e',
+                           name: 'Sparring me',
+                           points: 63
+                         },
+                         {
+                           id: 'a',
+                           name: 'Get rid of me',
+                           points: 95
+                         }
+                         ];
+                       }
 
-				$scope.usersListNgRepeat = [
-					{
-						id: 'f',
-						name: 'Rocky Balboa',
-						points: 120
-					},
-					{
-						id: 'd',
-						name: 'Ivan Drago',
-						points: 105
-					},
-					{
-						id: 'c',
-						name: 'Kicking your ass',
-						points: 20
-					},
-					{
-						id: 'b',
-						name: 'Mike Tyson',
-						points: 80
-					},
-					{
-						id: 'e',
-						name: 'Sparring me',
-						points: 63
-					},
-					{
-						id: 'a',
-						name: 'Get rid of me',
-						points: 95
-					}
-				];
-			}
+                       function walkingDelete(id) {
+                         var u;
 
-			function walkingDelete(id) {
-				var u;
+                         for (u = 0; u < $scope.usersListNgRepeat.length; u++) {
+                           if (id === $scope.usersListNgRepeat[u].id) {
+                             $scope.usersListNgRepeat.splice(u, 1);
+                             return true;
+                           }
+                         }
 
-				for (u = 0; u < $scope.usersListNgRepeat.length; u++) {
-					if (id === $scope.usersListNgRepeat[u].id) {
-						$scope.usersListNgRepeat.splice(u, 1);
-						return true;
-					}
-				}
+                         return false;
+                       }
 
-				return false;
-			}
+                       function fastDelete(id) {
+                         var pos = usersIndex[id];
 
-			function fastDelete(id) {
-				var pos = usersIndex[id];
+                         if (angular.isUndefined(pos)) {
+                           return false;
+                         } else {
+                           $scope.usersListIfcRepeat[pos] = null;
+                           return true;
+                         }
+                       }
 
-				if (angular.isUndefined(pos)) {
-					return false;
-				} else {
-					$scope.usersListIfcRepeat[pos] = null;
-					return true;
-				}
-			}
+                       var usersIndex;
+                       var toPromise;
 
-			var usersIndex;
-			var toPromise;
+                       initUsers();
 
-			initUsers();
+                       $rootScope.widgetRoute = '/widget/one';
 
-			$rootScope.widgetRoute = '/widget/one';
+                       $scope.initUsers = initUsers;
 
-			$scope.initUsers = initUsers;
+                       $scope.elementRemoved = '';
 
-			$scope.elementRemoved = '';
+                       $scope.removeElement = function removeElement() {
 
-			$scope.removeElement = function removeElement() {
+                         var key = $scope.keyOfElemToRemove;
 
-				var key = $scope.keyOfElemToRemove;
+                         if (toPromise) {
+                           $scope.elementRemoved = '';
+                           $timeout.cancel(toPromise);
+                         }
 
-				if (toPromise) {
-					$scope.elementRemoved = '';
-					$timeout.cancel(toPromise);
-				}
+                         if (angular.isUndefined(key) || (key === '')) {
+                           $scope.elementRemoved = false;
 
-				if (angular.isUndefined(key) || (key === '')) {
-					$scope.elementRemoved = false;
+                         } else {
+                           if (walkingDelete(key) && fastDelete(key)) {
+                             $scope.elementRemoved = 'removed';
+                           } else {
+                             $scope.elementRemoved = 'failed'
+                           }
 
-				} else {
-					if (walkingDelete(key) && fastDelete(key)) {
-						$scope.elementRemoved = 'removed';
-					} else {
-						$scope.elementRemoved = 'failed'
-					}
+                         }
 
-				}
+                         toPromise = $timeout(function () {
+                           $scope.elementRemoved = '';
+                         }, 2000);
 
-				toPromise = $timeout(function () {
-					$scope.elementRemoved = '';
-				}, 2000);
+                       };
 
-			};
-
-		}]);
-
+                     }]);
 })(window.angular.module('ifcDemo'));
