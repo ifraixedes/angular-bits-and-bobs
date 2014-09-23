@@ -43,6 +43,41 @@
         controller: 'IterateCollectionCtrl'
       });
 
+      $routes.when('/services/events', {
+        templateUrl: 'views/services/events.html',
+        controller: 'ServicesEventsCtrl'
+      });
+
+      $routes.when('/services/events/section1', {
+        templateUrl: 'views/services/events-section1.html',
+        controller: 'ServicesEventsCtrl'
+      });
+
+      $routes.when('/services/events/section2', {
+        templateUrl: 'views/services/events-section2.html',
+        controller: 'ServicesEventsCtrl'
+      });
+
+      $routes.when('/services/events/section2_1', {
+        templateUrl: 'views/services/events-section2-1.html',
+        controller: 'ServicesEventsCtrl'
+      });
+
+      $routes.when('/services/events/section3', {
+        templateUrl: 'views/services/events-section3.html',
+        controller: 'ServicesEventsCtrl'
+      });
+
+      $routes.when('/services/events/section3_1', {
+        templateUrl: 'views/services/events-section3-1.html',
+        controller: 'ServicesEventsCtrl'
+      });
+
+      $routes.when('/services/events/section3_2', {
+        templateUrl: 'views/services/events-section3-2.html',
+        controller: 'ServicesEventsCtrl'
+      });
+
       $routes.otherwise({
         redirect: '/'
       });
