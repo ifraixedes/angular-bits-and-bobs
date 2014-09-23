@@ -1,6 +1,5 @@
 /**
  * @license Ivan Fraixedes Cugat
- * (c) 2013
  * License: MIT
  */
 
@@ -226,4 +225,123 @@
 
     return sortedObjIds;
   });
+
+  ifcSevModule.factory('limitedBroadcast', ['$exceptionHandler', function ($exceptionHandler) {
+    return function ($scope, eventName, args, limit) {
+      var target = $scope,
+      current = target,
+      next = target,
+      parent = null,
+      stopPropagation = false,
+      event = {
+        name: eventName,
+        targetScope: target,
+        stopPropagation: function () {stopPropagation = true;},
+        preventDefault: function () {
+          event.defaultPrevented = true;
+        },
+        defaultPrevented: false
+      },
+      listenerArgs,
+      listeners, i, length,
+      deepLimit = 0; // one level (only listeners in the scope) 
+
+      if (args !== undefined) {
+        if (angular.isNumber(args)) {
+          deepLimit = args;
+          listenerArgs = [event];
+        } else {
+          args = args.slice(0);
+          args.unshift(event);
+          listenerArgs = args;
+        }
+      } else {
+        listenerArgs = [event];
+      }
+
+      if (angular.isNumber(limit)) {
+        if (limit < 0) {
+          throw new Errro('limitedBroacast service does not allow to infinite broacas if you need it, use the angular.$scope.$broacast');
+        }
+        deepLimit = limit;
+      }
+
+      function notify(current) {
+        var i,
+        listener,
+        length;
+        
+        event.currentScope = current;
+        listeners = current.$$listeners[eventName] || [];
+
+        for (i = 0, length = listeners.length; i < length; i++) {
+          // if listeners were deregistered, defragment the array
+          if (!listeners[i]) {
+            listeners.splice(i, 1);
+            i--;
+            length--;
+            continue;
+          }
+
+          try {
+            listeners[i].apply(null, listenerArgs);
+
+            if (stopPropagation) {
+              break;
+            }
+          } catch (e) {
+            $exceptionHandler(e);
+          }
+        }
+      }
+
+      function notifyNextSiblings(current) {
+        var sibbling = current;
+
+        do {
+          notify(sibbling);
+          if (stopPropagation === false) {
+            if (sibbling.$$nextSibling) {
+              sibbling = sibbling.$$nextSibling;
+            } else {
+              return
+            }
+          } else {
+            return;
+          }
+        } while (true);
+      }
+
+      function breathTraversal(target) {
+        var nodes = [target];
+        var node;
+        var pos = 0;
+        var depth = 1;
+
+        while (pos < nodes.length) {
+          node = nodes[pos++] ;
+          notifyNextSiblings(node)
+          node = node.$$childHead;
+
+          while(node) {
+            nodes.push(node);
+            node = node.$$nextSibling;
+          }
+        
+          //Stop if broadcast reach the depth
+          if (depth === pos) {
+            deepLimit--;
+            depth = nodes.length;
+          }
+
+          if (deepLimit < 0) {
+            return;
+          }
+        }
+      }
+
+      breathTraversal(current);
+      return event;
+    };
+  }]);
 }(window.angular));
