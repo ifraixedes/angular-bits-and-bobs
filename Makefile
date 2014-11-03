@@ -1,5 +1,5 @@
 
-.PHONY: doc demo
+.PHONY: doc demo clean ghpage
 
 clean:
 	rm -rf build
@@ -18,8 +18,5 @@ demo:
 	cp libs/angular*/angular.min.js build/vendor
 	cp libs/moment.js build/vendor
 	cp demo/index-ghp.html build/index.html
-
-ghpage: clean demo doc
-
 
 ghpage: clean demo doc
